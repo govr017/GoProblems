@@ -6,38 +6,38 @@ import (
 	"time"
 )
 
+const COLOR_DEFAULT = "\033[0m"
+const COLOR_RED = "\033[31m"
+const COLOR_GREEN = "\033[32m"
+const COLOR_YELLOW = "\033[33m"
+const COLOR_BLUE = "\033[34m"
+
 func main() {
-
-	const COLORRED = "\033[31m"
-	const COLORGREEN = "\033[32m"
-
 	rand.Seed(time.Now().UnixNano())
 	var answer int
 	var x = rand.Intn(10)
 	var y = rand.Intn(10)
 	var method int
 
-
-  fmt.Println("Hey choose minus(1) or plus(2) 1/2?")
+	fmt.Print("Choose Math-method: minus (1) or plus (2): ", COLOR_YELLOW)
 	fmt.Scanln(&method)
+	fmt.Print(COLOR_DEFAULT)
 
-
-  if method == 1 {
-		fmt.Println("Whats", x, "", "-", "", y)
+	if method == 1 {
+		fmt.Printf("Whats: %d - %d = %s", x, y, COLOR_YELLOW)
 		fmt.Scanln(&answer)
 		if answer == x-y {
-			fmt.Println(string(COLORGREEN), "Good job!")
+			fmt.Print(COLOR_GREEN, "Good job!", COLOR_DEFAULT, "\n")
 		} else {
-			fmt.Println(string(COLORRED), "Too bad!")
+			fmt.Print(COLOR_RED, "Too bad!", COLOR_DEFAULT, "\n")
 		}
 	} else {
-		fmt.Println("Whats", x, "", "+", "", y)
+		fmt.Printf("Compute: %d + %d = %s", x, y, COLOR_YELLOW)
 		fmt.Scanln(&answer)
 		if answer == x+y {
-			fmt.Println(string(COLORGREEN), "Good job!")
+			fmt.Print(COLOR_GREEN, "Good job!", COLOR_DEFAULT, "\n")
 		} else {
-			fmt.Println(string(COLORRED), "Too bad!")
+			fmt.Print(COLOR_RED, "Too bad!", COLOR_DEFAULT, "\n")
 		}
 	}
-
 }

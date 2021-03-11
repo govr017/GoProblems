@@ -1,1 +1,1 @@
-GoProblems
+# GoProblemsПростое приложение для решения примеров по математике ## Build```console$ go build math_problems.go$ ./math_problems```## Instant Run```console$ go run math_problems.go```
